@@ -151,7 +151,10 @@ document.getElementById("add-form").addEventListener("submit", (e) => {
   const title = document.getElementById("custom-title").value || "無題";
   const tags = document.getElementById("custom-tags").value.split(",").map(tag => tag.trim()).filter(Boolean);
   const videoId = extractVideoId(url);
-  if (!videoId) return alert("無効なYouTube URL");
+  if (!videoId) {
+    alert("無効なYouTube URLです");
+    return;
+  }
 
   playlists[currentPlaylist].push({ title, videoId, tags });
   saveData();
@@ -163,4 +166,3 @@ window.onload = () => {
   renderPlaylistSelector();
   renderLibrary();
 };
-

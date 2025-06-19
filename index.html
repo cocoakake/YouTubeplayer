@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YouTube MP3風プレイヤー</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MP3風YouTubeプレイヤー</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <h1>🎵 MyTubeプレイヤー</h1>
+
+    <div class="toolbar">
+      <select id="playlist-select"></select>
+      <button onclick="toggleVideoMode()">🎬 切替</button>
+      <button onclick="createPlaylist()">➕プレイリスト</button>
+    </div>
+
     <form id="add-form">
-      <input type="text" id="youtube-url" placeholder="YouTubeのURLを貼ってね" required />
-      <input type="text" id="custom-title" placeholder="任意タイトル (空でもOK)" />
+      <input type="text" id="youtube-url" placeholder="YouTubeのURL" required />
+      <input type="text" id="custom-title" placeholder="曲のタイトル" />
+      <input type="text" id="custom-tags" placeholder="タグ(カンマ区切り)" />
       <button type="submit">追加</button>
     </form>
+
+    <div id="tag-filter"></div>
   </header>
 
-  <main id="library" class="card-grid">
-    <!-- 曲カード -->
-  </main>
+  <main id="library" class="card-grid"></main>
 
   <footer class="player-controls">
-    <div id="player"></div>
+    <div id="player-container" style="display:none;">
+      <div id="player"></div>
+    </div>
     <div class="buttons">
       <button onclick="prevVideo()">⏮</button>
       <button onclick="togglePlay()">▶️/⏸</button>
@@ -33,4 +43,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-

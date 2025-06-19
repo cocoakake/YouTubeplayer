@@ -1,45 +1,33 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MP3風YouTubeプレイヤー</title>
-<link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <h1>🎵 MyTubeプレイヤー</h1>
+<header>
+  <h1>🎵 MyTubeプレイヤー</h1>
+  <div class="toolbar">
+    <select id="playlist-select"></select>
+    <button id="mode-btn" onclick="toggleVideoMode()">🎬 動画モードへ切替</button>
+    <button onclick="createPlaylist()">➕ プレイリスト追加</button>
+  </div>
 
-    <div class="toolbar">
-      <select id="playlist-select"></select>
-      <button onclick="toggleVideoMode()">🎬 切替</button>
-      <button onclick="createPlaylist()">➕プレイリスト</button>
-    </div>
+  <form id="add-form">
+    <input type="text" id="youtube-url" placeholder="YouTubeのURL" required />
+    <input type="text" id="custom-title" placeholder="曲のタイトル" />
+    <input type="text" id="custom-tags" placeholder="タグ(カンマ区切り)" />
+    <button type="submit">追加</button>
+  </form>
 
-    <form id="add-form">
-      <input type="text" id="youtube-url" placeholder="YouTubeのURL" required />
-      <input type="text" id="custom-title" placeholder="曲のタイトル" />
-      <input type="text" id="custom-tags" placeholder="タグ(カンマ区切り)" />
-      <button type="submit">追加</button>
-    </form>
+  <div id="tag-filter"></div>
+</header>
 
-    <div id="tag-filter"></div>
-  </header>
+<main>
+  <div id="player-container" class="player-container-hidden">
+    <div id="player"></div>
+  </div>
 
-  <main id="library" class="card-grid"></main>
+  <section id="library" class="card-grid"></section>
+</main>
 
-  <footer class="player-controls">
-    <div id="player-container" style="display:none;">
-      <div id="player"></div>
-    </div>
-    <div class="buttons">
-      <button onclick="prevVideo()">⏮</button>
-      <button onclick="togglePlay()">▶️/⏸</button>
-      <button onclick="nextVideo()">⏭</button>
-    </div>
-  </footer>
-
-  <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="script.js"></script>
-</body>
-</html>
+<footer class="player-controls">
+  <div class="buttons">
+    <button onclick="prevVideo()">⏮</button>
+    <button onclick="togglePlay()">▶️/⏸</button>
+    <button onclick="nextVideo()">⏭</button>
+  </div>
+</footer>

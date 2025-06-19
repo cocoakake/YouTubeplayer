@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube MP3風プレイヤー</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🎵 MyTubeプレイヤー</h1>
+    <form id="add-form">
+      <input type="text" id="youtube-url" placeholder="YouTubeのURLを貼ってね" required />
+      <input type="text" id="custom-title" placeholder="任意タイトル (空でもOK)" />
+      <button type="submit">追加</button>
+    </form>
+  </header>
+
+  <main id="library" class="card-grid">
+    <!-- 曲カード -->
+  </main>
+
+  <footer class="player-controls">
+    <div id="player"></div>
+    <div class="buttons">
+      <button onclick="prevVideo()">⏮</button>
+      <button onclick="togglePlay()">▶️/⏸</button>
+      <button onclick="nextVideo()">⏭</button>
+    </div>
+  </footer>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
